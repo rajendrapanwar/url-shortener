@@ -24,7 +24,7 @@
                         </div>
                     @endif
 
-                    <table class="w-full border border-gray-200">
+                    <table class="w-full border border-gray-200" id="short-urls-table">
                         <thead>
                             <tr class="bg-gray-50 border-b border-gray-200">
                                 <th class="px-4 py-3 text-left text-sm font-medium text-black">Short URL</th>
@@ -75,4 +75,17 @@
             </div>
         </div>
     </div>
+     @push('scripts')
+<script>
+    $(document).ready(function () {
+        @if(auth()->user()->isSuperAdmin())
+            initializeDataTable('short-urls-table', { order: [[4, 'desc']] });  // 5 columns
+        @elseif(auth()->user()->isAdmin())
+            initializeDataTable('short-urls-table', { order: [[3, 'desc']] });  // 4 columns
+        @else
+            initializeDataTable('short-urls-table', { order: [[2, 'desc']] });  // 3 columns
+        @endif
+    });
+</script>
+@endpush
 </x-app-layout>

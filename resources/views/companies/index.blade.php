@@ -22,7 +22,7 @@
                         </div>
                     @endif
 
-                    <table class="w-full border border-gray-200">
+                    <table class="w-full border border-gray-200" id="companies-table">
                         <thead>
                             <tr class="bg-gray-50 border-b border-gray-200">
                                 <th class="px-4 py-3 text-left text-sm font-medium text-black">Name</th>
@@ -53,4 +53,16 @@
             </div>
         </div>
     </div>
+    @push('scripts')
+    <script>
+        $(document).ready(function () {
+            initializeDataTable('companies-table', {
+                order: [[4, 'desc']],
+                columnDefs: [
+                    { orderable: false }
+                ]
+            });
+        });
+    </script>
+    @endpush
 </x-app-layout>

@@ -8,7 +8,10 @@ use App\Http\Controllers\ShortUrlController;
 use App\Http\Controllers\InvitationController;
 
 Route::get('/', function () {
-    return view('welcome');
+    if (auth()->check()) {
+        return redirect()->route('dashboard');
+    }
+    return redirect()->route('login');
 });
 
 Route::get('/dashboard', [DashboardController::class, 'index'])

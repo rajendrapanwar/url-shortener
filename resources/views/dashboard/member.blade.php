@@ -14,10 +14,12 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mb-6">
-                <div class="p-6">
-                    <div class="text-3xl font-bold text-black">{{ $totalUrls }}</div>
-                    <div class="text-gray-500 text-sm mt-1">Your Short URLs</div>
+            <div class="mb-6 flex items-center justify-start">
+                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mb-6">
+                    <div class="p-6">
+                        <div class="text-3xl font-bold text-black">{{ $totalUrls }}</div>
+                        <div class="text-gray-500 text-sm mt-1">Your Short URLs</div>
+                    </div>
                 </div>
             </div>
 
@@ -25,7 +27,7 @@
                 <div class="p-6">
                     <h3 class="text-lg font-semibold text-black mb-4">Recent URLs</h3>
                     
-                    <table class="w-full border border-gray-200">
+                    <table class="w-full border border-gray-200" id="short-url-table">
                         <thead>
                             <tr class="bg-gray-50 border-b border-gray-200">
                                 <th class="px-4 py-3 text-left text-sm font-medium text-black">Short URL</th>
@@ -58,4 +60,16 @@
 
         </div>
     </div>
+    @push('scripts')
+    <script>
+        $(document).ready(function () {
+            initializeDataTable('short-url-table', {
+                order: [[2, 'desc']],
+                columnDefs: [
+                    { orderable: false }
+                ]
+            });
+        });
+    </script>
+    @endpush
 </x-app-layout>

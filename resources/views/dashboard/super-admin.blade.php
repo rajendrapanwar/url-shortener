@@ -19,7 +19,7 @@
                         </a>
                     </div>
                     
-                    <table class="w-full border border-gray-200">
+                    <table class="w-full border border-gray-200" id="clients-table">
                         <thead>
                             <tr class="bg-gray-50 border-b border-gray-200">
                                 <th class="px-4 py-3 text-left text-sm font-medium text-black">Client Name</th>
@@ -48,12 +48,6 @@
                             @endforelse
                         </tbody>
                     </table>
-
-                    <div class="mt-3 text-sm text-gray-500">
-                        Showing {{ $companies->count() }} of total {{ $totalCompanies }}
-                    </div>
-
-                    <a href="{{ route('companies.index') }}" class="btn text-black border border-gray-300 px-4 py-2 rounded hover:bg-gray-100 text-sm font-medium mt-2 inline-block">View All</a>
                 </div>
             </div>
 
@@ -68,7 +62,7 @@
                         </a>
                     </div>
                     
-                    <table class="w-full border border-gray-200">
+                    <table class="w-full border border-gray-200" id="short-url-table">
                         <thead>
                             <tr class="bg-gray-50 border-b border-gray-200">
                                 <th class="px-4 py-3 text-left text-sm font-medium text-black">Short URL</th>
@@ -94,15 +88,29 @@
                             @endforelse
                         </tbody>
                     </table>
-
-                    <div class="mt-3 text-sm text-gray-500">
-                        Showing {{ $recentUrls->count() }} of total {{ $totalUrls }}
-                    </div>
-
-                    <a href="{{ route('short-urls.index') }}" class="btn text-black border border-gray-300 px-4 py-2 rounded hover:bg-gray-100 text-sm font-medium mt-2 inline-block">View All</a>
                 </div>
             </div>
 
         </div>
     </div>
+
+    @push('scripts')
+    <script>
+        $(document).ready(function () {
+            initializeDataTable('clients-table', {
+                order: [[3, 'desc']],
+                columnDefs: [
+                    { orderable: false }
+                ]
+            });
+        
+            initializeDataTable('short-url-table', {
+                order: [[2, 'desc']],
+                columnDefs: [
+                    { orderable: false}
+                ]
+            });
+        });
+    </script>
+    @endpush
 </x-app-layout>
