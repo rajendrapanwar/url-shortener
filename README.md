@@ -28,7 +28,9 @@ cp .env.example .env
 # 4. Configure database in .env
 # Example:
 DB_DATABASE=url_shortener
+
 DB_USERNAME=root
+
 DB_USERNAME=
 
 # 5. Generate application key
@@ -39,3 +41,47 @@ php artisan migrate --seed
 
 # 7. Start development server
 php artisan serve
+
+
+# Features
+
+Multi-tenant architecture (Company-based data isolation)
+Role-based access control:
+Super Admin, Admin, Member
+Company management (create/manage companies)
+User management within companies
+Invitation-based user onboarding system
+URL shortening with unique short codes
+Redirect system for short URLs
+Authentication & authorization using Laravel
+
+# Default Credentials
+
+Super Admin
+
+Email: superadmin@example.com
+
+Password: password
+
+# AI Tools Used
+ChatGPT
+
+Helped in implementing:
+
+Eloquent relationships (belongsTo, hasMany)
+
+Role-based access control
+
+Multi-tenant architecture approach
+
+
+# Tech Stack
+Laravel 12
+
+PHP 8+
+
+MySQL
+
+Blade / Tailwind
+
+Git & GitHub
