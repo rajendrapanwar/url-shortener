@@ -1,6 +1,6 @@
 # Multi-Tenant URL Shortener (Laravel 12)
 
-A multi-tenant URL shortener application built with **Laravel 12** and **MySQL**, featuring role-based access control, company management, and invitation-based user onboarding.
+A multi-tenant URL shortener application, featuring role-based access control, company management, and invitation-based user onboarding.
 
 ---
 
