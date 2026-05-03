@@ -27,9 +27,9 @@ cp .env.example .env
 
 # 4. Configure database in .env
 # Example:
-# DB_DATABASE=url_shortener
-# DB_USERNAME=root
-# DB_PASSWORD=your_password
+DB_DATABASE=url_shortener
+DB_USERNAME=root
+DB_USERNAME=
 
 # 5. Generate application key
 php artisan key:generate
